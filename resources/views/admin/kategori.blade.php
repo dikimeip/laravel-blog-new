@@ -5,6 +5,11 @@
 <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal">TAMBAH</button>
 <br>
 <br>
+@if(Session::has('success'))
+<div class="alert alert-success">
+	<p>{{Session::get('success')}}</p>
+</div>	
+@endif
 <div class="col-md-6">
 	<table class="table table-bordered">
 	<tr>

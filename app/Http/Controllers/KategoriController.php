@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\KategoriRequest;
 use App\kategori;
+use Session;
 
 class KategoriController extends Controller
 {
@@ -20,6 +21,7 @@ class KategoriController extends Controller
     		'nama_kategori' => $request->nama,
     		'slug' => $request->slug
     	]);
+    	Session::flash('success','Success Tambah data');
     	return redirect()->back();
     }
 
@@ -27,6 +29,7 @@ class KategoriController extends Controller
     {
     	$data = kategori::find($id);
     	$data->delete();
+    	Session::flash('success','Success Hapus data');
     	return redirect()->back();
     }
 }
