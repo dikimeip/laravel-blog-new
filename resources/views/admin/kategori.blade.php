@@ -19,7 +19,7 @@
 		<td>{{$n->nama_kategori}}</td>
 		<td>{{$n->slug}}</td>
 		<td>
-			<a href="" class="btn btn-danger btn-sm">HAPUS</a>
+			<a onclick="return confirm('hapus Data.?')" href="{{route('removeKategori',$n->id)}}" class="btn btn-danger btn-sm">HAPUS</a>
 		</td>
 	</tr>
 	@endforeach 
@@ -37,11 +37,11 @@
 					{{csrf_field()}}
 					<div class="form-group">
 						<label>MASUKAN NAMA KATEGORI</label>
-						<input type="text" name="nama" class="form-control">
+						<input type="text" name="nama" class="form-control" required="">
 					</div>
 					<div class="form-group">
 						<label>MASUKAN SLUG KATEGORI</label>
-						<input type="text" name="slug" class="form-control">
+						<input type="text" name="slug" class="form-control" required="">
 					</div>
 			</div>
 			<div class="modal-footer">
