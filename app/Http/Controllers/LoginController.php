@@ -14,7 +14,7 @@ class LoginController extends Controller
     public function do_Login(Request $request)
     {
         if (auth()->attempt($request->only('email','password'))) {
-        	return view('admin.dasboard') ;
+        	return redirect()->route('AdminPage');
         } else {
         	return redirect()->back() ;
         }
