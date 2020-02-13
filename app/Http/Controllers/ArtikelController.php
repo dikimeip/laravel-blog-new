@@ -4,11 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class AdminController extends Controller
+class ArtikelController extends Controller
 {
     public function index()
     {
-    	return view('admin.dasboard');
+    	return view('admin.artikel') ;
     }
-
 }

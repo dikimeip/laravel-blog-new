@@ -40,17 +40,17 @@
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
       </li>
        <li class="nav-item " >
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="{{route('artikelPage')}}">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Artikel</span></a>
       </li>
        <li class="nav-item " >
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Kategori</span></a>
       </li>
@@ -96,8 +96,7 @@
 
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-            
+            @yield('isi')            
           </div>
 
         </div>
