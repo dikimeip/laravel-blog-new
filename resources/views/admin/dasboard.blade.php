@@ -40,7 +40,7 @@
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
-        <a class="nav-link" href="">
+        <a class="nav-link" href="{{route('AdminPage')}}">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
       </li>
@@ -50,7 +50,7 @@
           <span>Artikel</span></a>
       </li>
        <li class="nav-item " >
-        <a class="nav-link" href="">
+        <a class="nav-link" href="{{route('kategoriPage')}}">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Kategori</span></a>
       </li>
