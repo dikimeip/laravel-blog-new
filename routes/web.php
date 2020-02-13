@@ -20,5 +20,7 @@ Route::post('/admin','LoginController@do_Login')->name('login');
 Route::get('/wp-admin/index','AdminController@index')->name('AdminPage');
 Route::get('/wp-admin/artikel','ArtikelController@index')->name('artikelPage');
 Route::get('/wp-admin/kategori','KategoriController@index')->name('kategoriPage');
+Route::post('/wp-admin/kategori/add','KategoriController@add')->name('addKategori');
+
 
 
