@@ -1,4 +1,4 @@
 @extends('admin.dasboard')
 @section('isi')
-<p>HALAMAN ARTIKEL</p>
+<h1 class="text-center">ARTIKEL PAGE</h1>
 @endsection
