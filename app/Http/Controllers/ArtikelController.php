@@ -3,11 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\artikel;
 
 class ArtikelController extends Controller
 {
     public function index()
     {
-    	return view('admin.artikel') ;
+    	$data = artikel::all();
+    	//dd($data);
+    	return view('admin.artikel',compact('data')) ;
     }
 }

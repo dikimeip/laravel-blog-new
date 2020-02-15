@@ -16,13 +16,13 @@ class CreateTableArtikel extends Migration
         Schema::create('artikel', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('judul');
-            $table->string('body');
+            $table->text('body');
             $table->string('gambar');
-            $table->string('tanggal');
+            $table->date('tanggal');
             $table->string('recent');
             $table->string('most');
-            $table->unsignedBigInteger('id_kategori');
-            $table->foreign('id_kategori')->references('id')->on('kategori')->onDelete('cascade');
+            $table->unsignedBigInteger('kategori_id');
+            $table->foreign('kategori_id')->references('id')->on('kategori')->onDelete('cascade');
             $table->timestamps();
         });
     }
