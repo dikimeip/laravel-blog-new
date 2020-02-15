@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\artikel;
 use App\kategori;
 use App\Http\Requests\ArtikelRequest;
+use Session;
 
 class ArtikelController extends Controller
 {
@@ -39,6 +40,7 @@ class ArtikelController extends Controller
             'kategori_id' => $request->kategori,
         ]);
 
+        Session::flash('success','Berhasil Tambah Data');
         return redirect()->route('artikelPage');
     }
 }
