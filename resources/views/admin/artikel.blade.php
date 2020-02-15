@@ -1,6 +1,8 @@
 @extends('admin.dasboard')
 @section('isi')
 <h1 class="text-center">ARTIKEL PAGE</h1>
+<a href="{{route('addArtikel')}}" class="btn btn-primary btn-sm">TAMBAH</a>
+<br><br>
 <table class="table table-hover">
 	<tr>
 		<th>No</th>
