@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class KategoriRequest extends FormRequest
+class ArtikelRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,8 +24,8 @@ class KategoriRequest extends FormRequest
     public function rules()
     {
         return [
-            'nama' => 'required',
-            'slug' => 'required'
+            'judul' => 'required',
+            'body' => 'required',
         ];
     }
 }

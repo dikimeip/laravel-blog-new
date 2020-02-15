@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\artikel;
+use App\Http\Requests\ArtikelRequest;
 
 class ArtikelController extends Controller
 {
@@ -19,7 +20,7 @@ class ArtikelController extends Controller
     	return view('admin.addartikel');
     }
 
-    public function store(Request $request)
+    public function store(ArtikelRequest $request)
     {
     	dd($request);
     }

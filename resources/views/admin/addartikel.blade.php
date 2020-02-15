@@ -3,15 +3,17 @@
 <script type="text/javascript" src="{{asset('ckeditor/ckeditor.js')}}"></script>
 <h1 class="text-center">TAMBAH ARTIKEL</h1>
 <div class="col-md-10">
-	<form action="" method="post" enctype="mulitipart/form-data">
+	<form action="{{route('addArtikel')}}" method="post" enctype="mulitipart/form-data">
 		{{csrf_field()}}
 		<div class="form-group">
 			<label>Masukan Judul Berita</label>
-			<input type="text" name="judul" class="form-control" placeholder="Masukan Judul">
+			<input type="text" name="judul" class="form-control" placeholder="Masukan Judul" value="{{@old('judul')}}">
+			@error('judul')<span style="color:red">{{$message}}</span>@enderror
 		</div>
 		<div class="form-group">
 			<label>Masukan Isi Berita</label>
-			<textarea name="body" class="ckeditor" id="ckeditor"></textarea>
+			<textarea name="body" class="ckeditor" id="ckeditor">{{@old('body')}}</textarea>
+			@error('body')<span style="color:red">{{$message}}</span>@enderror
 		</div>
 		<div class="form-group">
 			<label>Berita Populer</label>
