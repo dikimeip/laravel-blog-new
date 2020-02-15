@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class artikel extends Model
 {
     protected $table = "artikel";
+    protected $fillable = ['judul','body','gambar','tanggal','recent','most','kategori_id'];
 
     public function kategori()
     {

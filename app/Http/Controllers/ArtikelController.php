@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\artikel;
+use App\kategori;
 use App\Http\Requests\ArtikelRequest;
 
 class ArtikelController extends Controller
@@ -17,11 +18,27 @@ class ArtikelController extends Controller
 
     public function add()
     {
-    	return view('admin.addartikel');
+        $data=kategori::all();
+    	return view('admin.addartikel',compact('data'));
     }
 
     public function store(ArtikelRequest $request)
     {
-    	dd($request);
+    	$gambar = $request->file('foto');
+        $org = $gambar->getClientOriginalName();
+        $path = "image";
+        $gambar->move($path,$org);
+
+        artikel::create([
+            'judul' => $request->judul,
+            'body' => $request->body,
+            'gambar' => $org,
+            'tanggal' => date('Y-m-d'),
+            'recent' => "no",
+            'most' => $request->most,
+            'kategori_id' => $request->kategori,
+        ]);
+
+        return redirect()->route('artikelPage');
     }
 }
