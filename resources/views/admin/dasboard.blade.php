@@ -84,8 +84,13 @@
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
            
-            <div class="topbar-divider d-none d-sm-block"></div>
-
+            <div class="topbar-divider d-none d-sm-block">
+            
+            </div>
+            <a class="dropdown-item" href="{{route('logout')}}">
+              <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+              Logout
+            </a>
           </ul>
 
         </nav>

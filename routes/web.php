@@ -16,6 +16,8 @@ Route::get('/', function () {
 });
 
 Route::get('/admin','LoginController@index');
+Route::get('/wp-admin/logout','AdminController@logout')->name('logout');
+
 Route::post('/admin','LoginController@do_Login')->name('login');
 Route::get('/wp-admin/index','AdminController@index')->name('AdminPage');
 Route::get('/wp-admin/artikel','ArtikelController@index')->name('artikelPage');

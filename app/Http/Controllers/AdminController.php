@@ -11,4 +11,10 @@ class AdminController extends Controller
     	return view('admin.home');
     }
 
+    public function logout()
+    {
+    	auth()->logout();
+    	return redirect('/') ;
+    }
+
 }
