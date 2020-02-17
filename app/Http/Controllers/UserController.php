@@ -13,6 +13,7 @@ class UserController extends Controller
     	$kategori = kategori::all();
     	$limitnew = artikel::latest()->get()->random(2);
     	$allnew = artikel::latest()->limit(6)->get();
-    	return view('user.dasboard',compact('kategori','limitnew','allnew')) ;
+    	$getmost = artikel::where('most','IYA')->get()->random(1);
+    	return view('user.dasboard',compact('kategori','limitnew','allnew','getmost')) ;
     }
 }
