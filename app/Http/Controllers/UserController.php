@@ -14,6 +14,8 @@ class UserController extends Controller
     	$limitnew = artikel::latest()->get()->random(2);
     	$allnew = artikel::latest()->limit(6)->get();
     	$getmost = artikel::where('most','IYA')->get()->random(1);
-    	return view('user.dasboard',compact('kategori','limitnew','allnew','getmost')) ;
+    	$getmostall = artikel::where('most','IYA')->limit(6)->get();
+    	$getallartikel = artikel::latest()->get()->random(4);
+    	return view('user.dasboard',compact('kategori','limitnew','allnew','getmost','getmostall','getallartikel')) ;
     }
 }

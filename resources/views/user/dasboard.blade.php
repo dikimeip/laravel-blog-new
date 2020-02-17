@@ -82,42 +82,18 @@
 
 					<!-- widget posts -->
 					<div class="section-row">
-						<h3>Recent Posts</h3>
+						<h3>All Post</h3>
+						@foreach($getallartikel as $gaa)
 						<div class="post post-widget">
-							<a class="post-img" href="blog-post.html"><img src="./img/widget-2.jpg" alt=""></a>
+							<a class="post-img" href="blog-post.html"><img src="{{asset('image/'.$gaa->gambar)}}" alt=""></a>
 							<div class="post-body">
-								<h3 class="post-title"><a href="blog-post.html">Pagedraw UI Builder Turns Your Website Design Mockup Into Code Automatically</a></h3>
+								<h3 class="post-title"><a href="blog-post.html">{{$gaa->judul}}</a></h3>
 							</div>
 						</div>
-
-						<div class="post post-widget">
-							<a class="post-img" href="blog-post.html"><img src="./img/widget-3.jpg" alt=""></a>
-							<div class="post-body">
-								<h3 class="post-title"><a href="blog-post.html">Why Node.js Is The Coolest Kid On The Backend Development Block!</a></h3>
-							</div>
-						</div>
-
-						<div class="post post-widget">
-							<a class="post-img" href="blog-post.html"><img src="./img/widget-4.jpg" alt=""></a>
-							<div class="post-body">
-								<h3 class="post-title"><a href="blog-post.html">Tell-A-Tool: Guide To Web Design And Development Tools</a></h3>
-							</div>
-						</div>
+						@endforeach
+						
 					</div>
 					<!-- /widget posts -->
-
-					<!-- social links -->
-					<div class="section-row">
-						<h3>Follow us</h3>
-						<ul class="nav-aside-social">
-							<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-							<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-							<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-							<li><a href="#"><i class="fa fa-pinterest"></i></a></li>
-						</ul>
-					</div>
-					<!-- /social links -->
-
 					<!-- aside nav close -->
 					<button class="nav-aside-close"><i class="fa fa-times"></i></button>
 					<!-- /aside nav close -->
@@ -210,98 +186,21 @@
 							<!-- /post -->
 
 							<!-- post -->
+							@foreach($getmostall as $gma)
 							<div class="col-md-6">
 								<div class="post">
-									<a class="post-img" href="blog-post.html"><img src="./img/post-1.jpg" alt=""></a>
+									<a class="post-img" href="blog-post.html"><img src="{{asset('image/'.$gma->gambar)}}" style="width: '100%';height: 200px " alt=""></a>
 									<div class="post-body">
 										<div class="post-meta">
-											<a class="post-category cat-4" href="category.html">Css</a>
-											<span class="post-date">March 27, 2018</span>
+											<a class="post-category cat-4" href="category.html">{{$gma->kategori->nama_kategori}}</a>
+											<span class="post-date">{{$gma->tanggal}}</span>
 										</div>
-										<h3 class="post-title"><a href="blog-post.html">CSS Float: A Tutorial</a></h3>
+										<h3 class="post-title"><a href="blog-post.html">{{$gma->judul}}</a></h3>
 									</div>
 								</div>
 							</div>
-							<!-- /post -->
-
-							<!-- post -->
-							<div class="col-md-6">
-								<div class="post">
-									<a class="post-img" href="blog-post.html"><img src="./img/post-2.jpg" alt=""></a>
-									<div class="post-body">
-										<div class="post-meta">
-											<a class="post-category cat-1" href="category.html">Web Design</a>
-											<span class="post-date">March 27, 2018</span>
-										</div>
-										<h3 class="post-title"><a href="blog-post.html">Tell-A-Tool: Guide To Web Design And Development Tools</a></h3>
-									</div>
-								</div>
-							</div>
-							<!-- /post -->
-
-							<div class="clearfix visible-md visible-lg"></div>
-
-							<!-- post -->
-							<div class="col-md-6">
-								<div class="post">
-									<a class="post-img" href="blog-post.html"><img src="./img/post-4.jpg" alt=""></a>
-									<div class="post-body">
-										<div class="post-meta">
-											<a class="post-category cat-2" href="category.html">JavaScript</a>
-											<span class="post-date">March 27, 2018</span>
-										</div>
-										<h3 class="post-title"><a href="blog-post.html">Chrome Extension Protects Against JavaScript-Based CPU Side-Channel Attacks</a></h3>
-									</div>
-								</div>
-							</div>
-							<!-- /post -->
-
-							<!-- post -->
-							<div class="col-md-6">
-								<div class="post">
-									<a class="post-img" href="blog-post.html"><img src="./img/post-5.jpg" alt=""></a>
-									<div class="post-body">
-										<div class="post-meta">
-											<a class="post-category cat-3" href="category.html">Jquery</a>
-											<span class="post-date">March 27, 2018</span>
-										</div>
-										<h3 class="post-title"><a href="blog-post.html">Ask HN: Does Anybody Still Use JQuery?</a></h3>
-									</div>
-								</div>
-							</div>
-							<!-- /post -->
-
-							<div class="clearfix visible-md visible-lg"></div>
-
-							<!-- post -->
-							<div class="col-md-6">
-								<div class="post">
-									<a class="post-img" href="blog-post.html"><img src="./img/post-3.jpg" alt=""></a>
-									<div class="post-body">
-										<div class="post-meta">
-											<a class="post-category cat-1" href="category.html">Web Design</a>
-											<span class="post-date">March 27, 2018</span>
-										</div>
-										<h3 class="post-title"><a href="blog-post.html">Pagedraw UI Builder Turns Your Website Design Mockup Into Code Automatically</a></h3>
-									</div>
-								</div>
-							</div>
-							<!-- /post -->
-
-							<!-- post -->
-							<div class="col-md-6">
-								<div class="post">
-									<a class="post-img" href="blog-post.html"><img src="./img/post-4.jpg" alt=""></a>
-									<div class="post-body">
-										<div class="post-meta">
-											<a class="post-category cat-2" href="category.html">JavaScript</a>
-											<span class="post-date">March 27, 2018</span>
-										</div>
-										<h3 class="post-title"><a href="blog-post.html">Chrome Extension Protects Against JavaScript-Based CPU Side-Channel Attacks</a></h3>
-									</div>
-								</div>
-							</div>
-							<!-- /post -->
+							@endforeach
+							
 						</div>
 					</div>
 
@@ -309,36 +208,16 @@
 						<!-- post widget -->
 						<div class="aside-widget">
 							<div class="section-title">
-								<h2>Most Read</h2>
+								<h2>All Post</h2>
 							</div>
-
+							@foreach($getallartikel as $gaa)
 							<div class="post post-widget">
-								<a class="post-img" href="blog-post.html"><img src="./img/widget-1.jpg" alt=""></a>
+								<a class="post-img" href="blog-post.html"><img src="{{asset('image/'.$gaa->gambar)}}" alt=""></a>
 								<div class="post-body">
-									<h3 class="post-title"><a href="blog-post.html">Tell-A-Tool: Guide To Web Design And Development Tools</a></h3>
+									<h3 class="post-title"><a href="blog-post.html">{{$gaa->judul}}</a></h3>
 								</div>
 							</div>
-
-							<div class="post post-widget">
-								<a class="post-img" href="blog-post.html"><img src="./img/widget-2.jpg" alt=""></a>
-								<div class="post-body">
-									<h3 class="post-title"><a href="blog-post.html">Pagedraw UI Builder Turns Your Website Design Mockup Into Code Automatically</a></h3>
-								</div>
-							</div>
-
-							<div class="post post-widget">
-								<a class="post-img" href="blog-post.html"><img src="./img/widget-3.jpg" alt=""></a>
-								<div class="post-body">
-									<h3 class="post-title"><a href="blog-post.html">Why Node.js Is The Coolest Kid On The Backend Development Block!</a></h3>
-								</div>
-							</div>
-
-							<div class="post post-widget">
-								<a class="post-img" href="blog-post.html"><img src="./img/widget-4.jpg" alt=""></a>
-								<div class="post-body">
-									<h3 class="post-title"><a href="blog-post.html">Tell-A-Tool: Guide To Web Design And Development Tools</a></h3>
-								</div>
-							</div>
+							@endforeach
 						</div>
 						<!-- /post widget -->
 						
