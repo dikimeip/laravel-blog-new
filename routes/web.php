@@ -12,7 +12,7 @@
 */
 
 
-Route::get('/admin','LoginController@index');
+Route::get('/admin','LoginController@index')->name('index');
 Route::get('/wp-admin/logout','AdminController@logout')->name('logout');
 
 // user
