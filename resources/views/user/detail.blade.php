@@ -6,19 +6,16 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-		<title>Web Programing Jaman Now</title>
-
-		<!-- Google font -->
-		<link href="https://fonts.googleapis.com/css?family=Nunito+Sans:700%7CNunito:300,600" rel="stylesheet"> 
+		<title>WebMag HTML Template</title>
 
 		<!-- Bootstrap -->
-		<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css"/>
+		<link type="text/css" rel="stylesheet" href="{{asset('css/bootstrap.min.css')}} "/>
 
 		<!-- Font Awesome Icon -->
-		<link rel="stylesheet" href="css/font-awesome.min.css">
+		<link rel="stylesheet" href="{{asset('css/font-awesome.min.css')}} ">
 
 		<!-- Custom stlylesheet -->
-		<link type="text/css" rel="stylesheet" href="css/style.css"/>
+		<link type="text/css" rel="stylesheet" href="{{asset('css/style.css')}} "/>
 
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -29,7 +26,7 @@
 
     </head>
 	<body>
-
+		
 		<!-- Header -->
 		<header id="header">
 			<!-- Nav -->
@@ -39,7 +36,7 @@
 					<div class="container">
 						<!-- logo -->
 						<div class="nav-logo">
-							<a href="{{route('user.index')}}" class="logo"><img src="./img/logo.png" alt=""></a>
+							<a href="index.html" class="logo"><img src="./img/logo.png" alt=""></a>
 						</div>
 						<!-- /logo -->
 
@@ -47,7 +44,7 @@
 						<ul class="nav-menu nav navbar-nav">
 							<li><a href="{{route('user.index')}}">News</a></li>
 							@foreach($kategori as $k)
-							<li class="cat-1"><a href="{{route('user.kategori',$k->id)}}">{{$k->nama_kategori}}</a></li>							
+							<li class="cat-1"><a href="{{route('user.kategori',$k->id)}}">{{$k->nama_kategori}}</a></li>
 							@endforeach
 						</ul>
 						<!-- /nav -->
@@ -81,25 +78,40 @@
 
 					<!-- widget posts -->
 					<div class="section-row">
-						<h3>All Post</h3>
-						@foreach($getallartikel as $gaa)
+						<h3>Recent Posts</h3>
+						@foreach($getallartikel as $ga)
 						<div class="post post-widget">
-							<a class="post-img" href="{{route('user.detail',$gaa->id)}}"><img src="{{asset('image/'.$gaa->gambar)}}" alt=""></a>
+							<a class="post-img" href="{{route('user.detail',$ga->id)}}"><img src="{{asset('image/'.$ga->gambar)}}" alt=""></a>
 							<div class="post-body">
-								<h3 class="post-title"><a href="{{route('user.detail',$gaa->id)}}">{{$gaa->judul}}</a></h3>
+								<h3 class="post-title"><a href="{{route('user.detail',$ga->id)}}">{{$ga->judul}}</a></h3>
 							</div>
 						</div>
 						@endforeach
 						
 					</div>
 					<!-- /widget posts -->
-					<!-- aside nav close -->
-					<button class="nav-aside-close"><i class="fa fa-times"></i></button>
-					<!-- /aside nav close -->
 				</div>
 				<!-- Aside Nav -->
 			</div>
 			<!-- /Nav -->
+			
+			<!-- Page Header -->
+
+			<div id="post-header" class="page-header">
+				<div class="background-img" style="background-image: url({{asset('image/'.$detailBeritas->gambar)}});"></div>
+				<div class="container">
+					<div class="row">
+						<div class="col-md-10">
+							<div class="post-meta">
+								<a class="post-category cat-2" href="category.html">{{$detailBeritas->kategori->nama_kategori}}</a>
+								<span class="post-date">{{$detailBeritas->tanggal}}</span>
+							</div>
+							<h1>{{$detailBeritas->judul}}</h1>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /Page Header -->
 		</header>
 		<!-- /Header -->
 
@@ -108,118 +120,31 @@
 			<!-- container -->
 			<div class="container">
 				<!-- row -->
-				<div class="row">	
-					<!-- post -->
-					@foreach($limitnew as $ln)
-					<div class="col-md-6">
-						<div class="post post-thumb">
-							<a class="{{route('user.detail',$ln->id)}}" href="{{route('user.detail',$ln->id)}}"><img style="width: 560px;height: 350px" src="{{asset('image/'.$ln->gambar)}}" alt=""></a>
-							<div class="post-body">
-								<div class="post-meta">
-									<a class="post-category cat-2" href="{{route('user.detail',$ln->id)}}">{{$ln->kategori->nama_kategori}}</a>
-									<span class="post-date">{{$ln->tanggal}}</span>
-								</div>
-								<h3 class="post-title"><a href="{{route('user.detail',$ln->id)}}">{{$ln->judul}}</a></h3>
-							</div>
-						</div>
-					</div>
-					@endforeach
-					<!-- /post -->
-
-					<!-- post -->
-					
-					<!-- /post -->
-				</div>
-				<!-- /row -->
-
-				<!-- row -->
 				<div class="row">
-					<div class="col-md-12">
-						<div class="section-title">
-							<h2>New Posts</h2>
-						</div>
-					</div>
-
-					<!-- post -->
-					@foreach($allnew as $an)
-					<div class="col-md-4">
-						<div class="post">
-							<a class="post-img" href="{{route('user.detail',$an->id)}}"><img style="width: 350;height: 200px" src="{{asset('image/'.$an->gambar)}}" alt=""></a>
-							<div class="post-body">
-								<div class="post-meta">
-									<a class="post-category cat-1" href="{{route('user.detail',$an->id)}}">{{$an->kategori->nama_kategori}}</a>
-									<span class="post-date">{{$an->tanggal}}</span>
-								</div>
-								<h3 class="post-title"><a href="{{route('user.detail',$an->id)}}">{{$an->judul}}</a></h3>
-							</div>
-						</div>
-					</div>
-					@endforeach
-				</div>
-				<!-- /row -->
-
-				<!-- row -->
-				<div class="row">
-					<div class="col-md-12">
-						<div class="section-title">
-							<h2>Populer Posts</h2>
-						</div>
-					</div>
+					<!-- Post content -->
 					<div class="col-md-8">
-						<div class="row">
-							<!-- post -->
-							<div class="col-md-12">
-								@foreach($getmost as $gt)
-								<div class="post post-thumb">
-									<a class="post-img" href="{{route('user.detail',$gt->id)}}"><img style="height: 400px;width:'100%' " src="{{asset('image/'.$gt->gambar)}}" alt=""></a>
-									<div class="post-body">
-										<div class="post-meta">
-											<a class="post-category cat-3" href="{{route('user.detail',$gt->id)}}">{{$gt->kategori->nama_kategori}}</a>
-											<span class="post-date">{{$gt->tanggal}}</span>
-										</div>
-										<h3 class="post-title"><a href="{{route('user.detail',$gt->id)}}">{{$gt->judul}}</a></h3>
-									</div>
-								</div>
-								@endforeach
+						<div class="section-row sticky-container">
+							<div class="main-post">
+								<p>{{$detailBeritas->body}}</p>
 							</div>
-							<!-- /post -->
-
-							<!-- post -->
-							@foreach($getmostall as $gma)
-							<div class="col-md-6">
-								<div class="post">
-									<a class="post-img" href="{{route('user.detail',$gma->id)}}"><img src="{{asset('image/'.$gma->gambar)}}" style="width: '100%';height: 200px " alt=""></a>
-									<div class="post-body">
-										<div class="post-meta">
-											<a class="post-category cat-4" href="{{route('user.detail',$gma->id)}}">{{$gma->kategori->nama_kategori}}</a>
-											<span class="post-date">{{$gma->tanggal}}</span>
-										</div>
-										<h3 class="post-title"><a href="{{route('user.detail',$gma->id)}}">{{$gma->judul}}</a></h3>
-									</div>
-								</div>
-							</div>
-							@endforeach
-							
 						</div>
-					</div>
-
-					<div class="col-md-4">
-						<!-- post widget -->
-						<div class="aside-widget">
-							<div class="section-title">
-								<h2>All Post</h2>
-							</div>
-							@foreach($getallartikel as $gaa)
-							<div class="post post-widget">
-								<a class="post-img" href="{{route('user.detail',$gaa->id)}}"><img src="{{asset('image/'.$gaa->gambar)}}" alt=""></a>
-								<div class="post-body">
-									<h3 class="post-title"><a href="blog-post.html">{{$gaa->judul}}</a></h3>
-								</div>
-							</div>
-							@endforeach
+						<!-- ad -->
+						<div class="section-row text-center">
+							<a href="#" style="display: inline-block;margin: auto;">
+								<img class="img-responsive" src="./img/ad-2.jpg" alt="">
+							</a>
 						</div>
-						<!-- /post widget -->
+						<!-- ad -->
 						
+						<!-- author -->
+					
+						
+
+					</div>
+					<!-- /Post content -->
+
+					<!-- aside -->
+					<div class="col-md-4">
 						<!-- ad -->
 						<div class="aside-widget text-center">
 							<a href="#" style="display: inline-block;margin: auto;">
@@ -227,20 +152,28 @@
 							</a>
 						</div>
 						<!-- /ad -->
-					</div>
-				</div>
-				<!-- /row -->
-			</div>
-			<!-- /container -->
-		</div>
-		<!-- /section -->
 
-		<!-- section -->
-		<div class="section">
-			<!-- container -->
-			<div class="container">
-				<!-- row -->
-				
+						<!-- post widget -->
+						<div class="aside-widget">
+							<div class="section-title">
+								<h2>Most Read</h2>
+							</div>
+							@foreach($getallartikel as $gaa)
+							<div class="post post-widget">
+								<a class="post-img" href="{{route('user.detail',$gaa->id)}}"><img src=" {{asset('image/'.$gaa->gambar)}} " alt=""></a>
+								<div class="post-body">
+									<h3 class="post-title"><a href="{{route('user.detail',$gaa->id)}}"> {{$gaa->judul}} </a></h3>
+								</div>
+							</div>
+							@endforeach
+						
+						</div>
+						<!-- /post widget -->
+						
+						
+					</div>
+					<!-- /aside -->
+				</div>
 				<!-- /row -->
 			</div>
 			<!-- /container -->
@@ -322,9 +255,9 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 		<!-- /Footer -->
 
 		<!-- jQuery Plugins -->
-		<script src="js/jquery.min.js"></script>
-		<script src="js/bootstrap.min.js"></script>
-		<script src="js/main.js"></script>
+		<script src=" {{asset('js/jquery.min.js')}} "></script>
+		<script src=" {{asset('js/bootstrap.min.js')}} "></script>
+		<script src=" {{asset('js/main.js')}} "></script>
 
 	</body>
 </html>

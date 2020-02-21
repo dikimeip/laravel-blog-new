@@ -18,4 +18,29 @@ class UserController extends Controller
     	$getallartikel = artikel::latest()->get()->random(4);
     	return view('user.dasboard',compact('kategori','limitnew','allnew','getmost','getmostall','getallartikel')) ;
     }
+
+    public function detailBerita($id)
+    {
+        $detailBeritas = artikel::find($id);
+        $getallartikel = artikel::latest()->get()->random(4);
+        $kategori = kategori::all();
+        return view('user.detail',compact('detailBeritas','getallartikel','kategori'));
+    }
+
+    public function CariBerita(Request $request)
+    {
+        $key = $request->search;
+        $data = artikel::where('judul','LIKE','%'.$key.'%')->get();
+        $getallartikel = artikel::latest()->get()->random(4);
+        $kategori = kategori::all();
+        return view('user.kategori',compact('data','getallartikel','kategori')) ;
+    }
+
+    public function CariKategori($id)
+    {
+        $data = artikel::where('kategori_id',$id)->get();
+        $getallartikel = artikel::latest()->get()->random(4);
+        $kategori = kategori::all();
+        return view('user.kategori',compact('data','getallartikel','kategori')) ;
+    }
 }

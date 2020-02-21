@@ -12,13 +12,14 @@
 */
 
 
-Route::get('/admin','LoginController@index')->name('index');
+Route::get('/admin','LoginController@index');
 Route::get('/wp-admin/logout','AdminController@logout')->name('logout');
 
 // user
 Route::get('/','UserController@index')->name('user.index');
-
-
+Route::get('/detail/{id}','UserController@detailBerita')->name('user.detail');
+Route::post('/detail/cari','UserController@CariBerita')->name('user.cari');
+Route::get('/detail/kategori/{id}','UserController@CariKategori')->name('user.kategori');
 
 // admin
 Route::post('/admin','LoginController@do_Login')->name('login');
